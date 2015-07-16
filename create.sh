@@ -58,8 +58,11 @@ extract_data(){
         name_file_=$(ls | grep "$4")
         cp "$name_file_"/* "$5"
         echo "Success"
+        clean_garbage
       else
         echo "The operation is not currently supported"
+        clean_garbage
+        exit 1
       fi
 
       # Substring, get the first letter of $level
@@ -73,9 +76,14 @@ extract_data(){
       #fi
     else
       echo "Unable to download the required file from cemc.math.uwaterloo.ca"
+      clean_garbage
       exit 1
     fi
   fi
+}
+
+clean_garbage(){
+  rm -r ~/data-"$num"
 }
 
 clear
