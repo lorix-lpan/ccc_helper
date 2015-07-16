@@ -1,5 +1,22 @@
 #!/bin/bash
 
+validation(){
+  #$1 => requirement(regex)
+  #$2 => input instruction
+  #$3 => returned variable name(TYPE)
+  #$4 => error messages
+  echo "$2"
+  local input
+  read input
+  if ! [[ "$input" =~ $1 ]];then
+    echo "$4"
+    validation "$1" "$2" "$3" "$4"
+  else
+    eval "$3"="$input"
+  fi
+}
+
+
 evaluation(){
   #$1 => letter_one
   #$2 => letter_two
@@ -59,13 +76,14 @@ extract_data(){
     local zip_name
     zip_name=$(ls | grep .zip)
     if [[ -e "$zip_name" ]];then
-      unzip "$zip_name"
+      unzip "$zip_name" > /dev/null
       rm -r "$zip_name"
       # Since there is only one file/directory in the current dir
       local folder
       possible_name=("data" ".+_.+_.+")
       for i in ${possible_name[@]}; do
         folder=$(ls | grep -E -w "$i")
+        echo "$folder"
         if [[ "$folder" != "" ]];then
           break
         fi
@@ -116,29 +134,35 @@ extract_data(){
 }
 
 clean_garbage(){
-  rm -r ~/data-"$num"
+  echo "lol"
+#  rm -r ~/data-"$num"
+
 }
 
 clear
-echo "Please input the year"
-read year
+
+validation '^[12][09][019][0-9]$' "Which year" "year" "Invalid input, input year between 199* to 201*"
+# Return $year
 
 evaluation "s" "j" "Senior" "Junior" "level" 
 # Return $level
 evaluation "p" "c" "python" "cplusplus" "language"
 # Return $language
 
-echo "Which question(1..5)"
-read number
-echo "Question name?"
-read name
+validation '^[1-5]$' "Which question(1..5)" "number" "Your input has to be in range 1-5"
+# Return $number
+
+validation '^.+' "Question name?" "name" "The name cannot be blank"
+# Return $name
+
+validation '^.+' "Please input the name of the file" "filename" "The name cannot be blank"
+# Return $filename
 
 destination=~/workspaces/ccc/"$year"/"$language"/"$level"/"$number"."$name"/
 
 mkdir -p "$destination"
 cd "$destination"
-echo "Please input the name of the file"
-read filename
+
 if [[ $language == "python" ]];then
   touch "$filename".py
 elif [[ $language == "cplusplus" ]];then
