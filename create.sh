@@ -117,14 +117,6 @@ extract_data(){
         clean_garbage
         exit 1
       fi
-
-      #if [[ -d "$5" ]];then
-      #  cp "${3,,}"/"${3:0:1}"/* "$5"
-      #  echo "success"
-      #else
-      #  echo "Unable to find directory: $5"
-      #  exit 1
-      #fi
     else
       echo "Unable to download the required file from cemc.math.uwaterloo.ca"
       clean_garbage
@@ -134,8 +126,7 @@ extract_data(){
 }
 
 clean_garbage(){
-  echo "lol"
-#  rm -r ~/data-"$num"
+  rm -r ~/data-"$num"
 
 }
 
