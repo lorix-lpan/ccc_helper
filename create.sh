@@ -73,11 +73,9 @@ extract_data(){
       download_zip="data.zip"
     fi
     wget https://cemc.math.uwaterloo.ca/contests/computing/"$2"/"$first""$second""$download_zip"
-    local zip_name
-    zip_name=$(ls | grep .zip)
-    if [[ -e "$zip_name" ]];then
-      unzip "$zip_name" > /dev/null
-      rm -r "$zip_name"
+    if [[ -e "$download_zip" ]];then
+      unzip "$download_zip" > /dev/null
+      rm -r "$download_zip"
       # Since there is only one file/directory in the current dir
       local folder
       possible_name=("data" ".+_.+_.+")
