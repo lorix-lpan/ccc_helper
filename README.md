@@ -93,11 +93,11 @@ tedious process to download, unzip and copy the necessary test files to his
 question directory. 
 
 ######Behaviours
-As an optional function of this program, it comes in at the last. The only
-required is to decide to fetch the data from CCC's web server by inputing y or
+As an optional function of this program, it comes in at last. The only thing
+required for the user to do is to decide to fetch the data from CCC's web server by inputing y or
 n. If y is chosen, the following process will be triggered:
 
-1. Creating a temporary directory named data-RANDOME at /home/$USER where
+1. Create a temporary directory named data-RANDOME at /home/$USER where
   RANDOM is a variable contains the value of a random integer.
 
   Example directory created: /home/lawrence/data-1234
@@ -106,6 +106,8 @@ n. If y is chosen, the following process will be triggered:
 
 3. Unzip the file and identify the directory required. Then copy the data to the
   directory created by the previous function mentioned.
+
+4. Delete the temporary directory recursively
 
 ######Example
 Considering the following data obtained from the *organizing file* function
