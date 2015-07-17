@@ -7,9 +7,11 @@ GNU GENERAL PUBLIC LICENSE Version 3
 
 ## Usage
 Note: It is recommended to resolve the dependencies first.
+
+Open terminl and enter the following command in order
 * $ git clone https://github.com/lorix-lpan/ccc_helper
-* cd ccc_helper
-* bash create.sh
+* $ cd ccc_helper
+* $ bash create.sh
 
 #### **Warning**
 This program is currently in **Beta**. It has not been tested on any Linux
@@ -18,7 +20,7 @@ distribution other than Arch Linux
 ### Dependencies
 This program was written with the philosophy of portability in mind. Since each
 distribution has its unique package manager, this script does not have automatic
-dependency resolution. Hence, they have to be resolved manualy by the user.
+dependency resolution. Hence, they have to be resolved manually by the user.
 
 This script requires **wget**, **unzip** and **bash >= 4.0**
 
