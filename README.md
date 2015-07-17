@@ -22,7 +22,7 @@ file.
 If you have any difficulties concerning this script, please contact the
 author: 
 
-Fei "Lawrence" Pan lawrence_pan@hot-shot.com
+* *Fei "Lawrence" Pan* lawrence_pan@hot-shot.com
 
 ## The Canadian Computing Competition
 The Canadian Computing Competition is called CCC for short. It is an annual
