@@ -6,8 +6,7 @@ Computing Competitoin practice files
 GNU GENERAL PUBLIC LICENSE Version 3
 
 ## Usage
-Note: It is recommended to resolve the dependencies first.
-
+Note: It is recommended to resolve the dependencies first.  
 Open the terminal and enter the following commands
 * $ git clone https://github.com/lorix-lpan/ccc_helper
 * $ cd ccc_helper
@@ -15,14 +14,14 @@ Open the terminal and enter the following commands
 
 #### **Warning**
 This program is currently in **Beta**. It has not been tested on any Linux
-distribution other than Arch Linux
+distribution other than Arch Linux.
 
 ### Dependencies
 This program was written with the philosophy of portability in mind. Since each
 distribution has its unique package manager, this script does not have automatic
 dependency resolution. Hence, they have to be resolved manually by the user.
 
-This script requires **wget**, **unzip** and **bash >= 4.0**
+This script requires **wget** and **unzip**
 
 ## Description
 Firstly, it is important to point out that this helper is **unofficial**
@@ -55,7 +54,7 @@ your practice files and downloading the test case data from the CCC's web server
 #### 1. Organizing your files
 
 ######Behaviours
-The program starts with getting its necessary data. After successfully getting 
+The program starts with getting its required data from the user. After successfully getting 
 all of the valid inputs, it will create **~/workspaces/ccc/** directory and use 
 it as the **root** directory. Thereafter, according to the **year**(A four digit
 number), **language**(a letter either p or c where p stands for python and c stands 
@@ -80,9 +79,12 @@ This program is written intended to be used repetitively. In other words, it
 should be executed each time when you start working on a new question. In order to
 avoid naming conflicts between questions/files, it is mandatory for the user to
 input a custom question(directory) name and a file name as shown in the previous
-example. Inputing the same question_names and file_names is **dangerous**.
+example. Inputing the same question_names and file_names twice is **dangerous**.
 
 #### 2. Fetching test case data
+
+######Note
+This function only supports years 2004-2015
 
 ######Brief Introduction
 The program was written originally with the purpose of organizing one's ccc
@@ -127,3 +129,5 @@ excluding directories inside the chosen folder to the destination which is the
 route created by the previous action. In this case, the destination will be 
 
 **~/workspaces/ccc/2012/cplusplus/Senior/1.foo/**
+
+

@@ -53,9 +53,9 @@ extract_data(){
     num=$RANDOM
     mkdir ~/data-"$num"
     cd ~/data-"$num"
-    # A more elegent way of finding this route is coming soon
-    # I am thinking about downloading the entire html file then use grep to find
-    # the exact route
+
+    # Since the site is extremely not consistent :-). It is necessary to use a
+    # simple if statement to resolve the route of the file
     local first
     local second
     local download_zip
