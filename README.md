@@ -37,6 +37,8 @@ As for the current version, the program has two main functions, organizing
 your practice files and downloading the test case data from the CCC's web server.
 
 #### Organizing your files
+
+######Behaviours
 The program starts with getting its necessary data. After successfully getting 
 all of the valid inputs, it will create **~/workspaces/ccc/** directory and use 
 it as the **root** directory. Thereafter, according to the **year**(A four digit
@@ -66,3 +68,44 @@ example. Inputing the same question_names and file_names is **dangerous**.
 
 #### Fetching test case data
 
+######Brief Introduction
+The program was written originally with the purpose of organizing one's ccc
+files. However, it was almost instantly discovered that the test case data is necessary when solving
+a question. On the official ccc site, the test data is zipped into one single
+file. As one continues to solve questions, he soon can realize that it is a
+tedious process to download, unzip and copy the necessary test files to his
+question directory. 
+
+######Behaviours
+As an optional function of this program, it comes in at the last. The only
+required is to decide to fetch the data from CCC's web server by inputing y or
+n. If y is chosen, the following process will be triggered:
+
+1. Creating a temporary directory named data-RANDOME at /home/$USER where
+  RANDOM is a variable contains the value of a random integer.
+
+  Example directory created: /home/lawrence/data-1234
+
+2. downloading the zip file from the official website
+
+3. Unzip the file and identify the directory required. Then copy the data to the
+  directory created by the previous function mentioned.
+
+######Example
+Considering the following data obtained from the *organizing file* function
+
+* year=2012
+* language=c
+* level=s
+* number=1
+* question_name="foo"
+* file_name="bar"
+
+The program will download and unzip the test data zip file of the year 2012 from CCC's
+web server. Then, since the level is Senior and the number is 1, the script will
+automatically find the directory with corresponding name which in this case will
+be S1(or s1 depending on the year). Lastly, the script will copy all of files
+excluding directories inside the chosen folder to the destination which is the
+route created by the previous action. In this case, the destination will be 
+
+**~/workspaces/ccc/2012/cplusplus/Senior/1.foo/**
