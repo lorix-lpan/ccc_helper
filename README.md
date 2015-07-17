@@ -14,10 +14,13 @@ dependency resolution. Hence, they have to be resolved manualy by the user.
 This script requires **wget**, **unzip** and **bash >= 4.0**
 
 ## Description
-First, it is important to point out that this helper is **unofficial**
+Firstly, it is important to point out that this helper is **unofficial**
 
 This Shellscript was originally wriiten in order to organize my ccc practice
 file. 
+
+If you have any difficulties regarding to this script, please contact the
+author: <Fei "Lawrence" Pan> lawrence_pan@hot-shot.com
 
 ## The Canadian Computing Competition
 The Canadian Computing Competition is called CCC for short. It is an annual
@@ -36,7 +39,7 @@ https://cemc.math.uwaterloo.ca/contests/past_contests.html#ccc
 As for the current version, the program has two main functions, organizing
 your practice files and downloading the test case data from the CCC's web server.
 
-#### Organizing your files
+#### 1. Organizing your files
 
 ######Behaviours
 The program starts with getting its necessary data. After successfully getting 
@@ -66,7 +69,7 @@ avoid naming conflicts between questions/files, it is mandatory for the user to
 input a custom question(directory) name and a file name as shown in the previous
 example. Inputing the same question_names and file_names is **dangerous**.
 
-#### Fetching test case data
+#### 2. Fetching test case data
 
 ######Brief Introduction
 The program was written originally with the purpose of organizing one's ccc
