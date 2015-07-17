@@ -8,7 +8,7 @@ GNU GENERAL PUBLIC LICENSE Version 3
 ## Usage
 Note: It is recommended to resolve the dependencies first.
 
-Open terminl and enter the following command in order
+Open the terminal and enter the following commands
 * $ git clone https://github.com/lorix-lpan/ccc_helper
 * $ cd ccc_helper
 * $ bash create.sh
@@ -102,7 +102,7 @@ n. If y is chosen, the following process will be triggered:
 
   Example directory created: /home/lawrence/data-1234
 
-2. downloading the zip file from the official website
+2. Download the zip file(UNIX_OR_MAC.zip or data.zip) from the official website
 
 3. Unzip the file and identify the directory required. Then copy the data to the
   directory created by the previous function mentioned.
