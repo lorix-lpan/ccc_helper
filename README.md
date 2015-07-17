@@ -2,6 +2,15 @@
 This is a helper script written in Bash intended to organize one's Canadian
 Computing Competitoin practice files
 
+## License
+GNU GENERAL PUBLIC LICENSE Version 3
+
+## Usage
+Note: It is recommended to resolve the dependencies first.
+* $ git clone https://github.com/lorix-lpan/ccc_helper
+* cd ccc_helper
+* bash create.sh
+
 #### **Warning**
 This program is currently in **Beta**. It has not been tested on any Linux
 distribution other than Arch Linux
