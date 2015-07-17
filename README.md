@@ -130,4 +130,25 @@ route created by the previous action. In this case, the destination will be
 
 **~/workspaces/ccc/2012/cplusplus/Senior/1.foo/**
 
+###Conclusion
+Overall, it can be considered as a simple program. The development process takes
+less than 3 hours. However, due to the naming inconsistency of the official CCC
+site, various problems had to be dealt with during the development process.
 
+#####Challenges
+1. The route of the zip file is not consistent. As for the *extracting data*
+   function, since the data file is planned to be downloaded directly via HTTP, a
+   route to the file is required. However, it was soon discovered that from
+   2009-present, the name of the zip file is different from the one before
+   2008 . In addition to this, the route changes as the year increases as well.
+
+   This was solved by using a simple conditional statement.
+
+2. The layout of the test data in the folder extracted is EXTREMELY inconsistent
+   as well. First of all, the name of the directory extracted changes literally
+   from year to year. Also, depending on the year, the test data files can be
+   placed in one single parent directory or placed seperately according to its
+   level(Seinor/Junior). As for certain years, the zip file includes test case
+   files for both Unix and Windows which are required to be distinguished.
+
+   This was solved by using the Unix *find* and *grep* utilities with a loop.
