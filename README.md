@@ -19,8 +19,8 @@ Firstly, it is important to point out that this helper is **unofficial**
 This Shellscript was originally wriiten in order to organize my ccc practice
 file. 
 
-If you have any difficulties regarding to this script, please contact the
-author: <Fei "Lawrence" Pan> lawrence_pan@hot-shot.com
+If you have any difficulties concerning this script, please contact the
+author: Fei "Lawrence" Pan lawrence_pan@hot-shot.com
 
 ## The Canadian Computing Competition
 The Canadian Computing Competition is called CCC for short. It is an annual
