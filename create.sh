@@ -73,12 +73,16 @@ extract_data(){
       download_zip="data.zip"
     fi
     wget https://cemc.math.uwaterloo.ca/contests/computing/"$2"/"$first""$second""$download_zip"
+
+    # Check if it is successfully downloaded
     if [[ -e "$download_zip" ]];then
       unzip "$download_zip" > /dev/null
       rm -r "$download_zip"
-      # Since there is only one file/directory in the current dir
       local folder
-      possible_name=("data" ".+_.+_.+")
+      local regex_dir
+      regex_unix='.+_.+_.+'
+      regex_general='.+'
+      possible_name=("$regex_unix" "$regex_general")
       for i in ${possible_name[@]}; do
         folder=$(ls | grep -E -w "$i")
         echo "$folder"
@@ -86,35 +90,24 @@ extract_data(){
           break
         fi
       done
-      #if (("$2" >= 2009));then
-      #  folder=$(ls | grep .*_.*_.*)
-      #else
-      #  folder=$(ls | grep .)
-      #fi
+
       cd "$folder"
-      local name_file_
-      if (($(ls -1 | wc -l) <= 3));then
-        # ls -1 | wc -l returns the number of files/dirs in current dir
-        # if the files are contained seperately in junior and senior parent dir
-        # cd into senior/junior
-        # Bash 4.0 sytax, downcase all the letters of the string $level
-        # "${3,,}"
-        cd "${3,,}"
-        name_file_=$(ls | grep "$4")
-        cp "$name_file_"/* "$5"
-        echo "Success"
-        clean_garbage
-      else
-        # If all the subdirs are placed in one parent dir(number of dirs > 3)
-        # Substring, get the first letter of $level
-        # "${3:0:1}"
-        # grep -i ignores case
-        name_file_=$(ls | grep -i "${3:0:1}$4")
-        cp "$name_file_"/* "$5"
-        echo "Success"
-        clean_garbage
-        exit 1
+      # In case if the files are duplicated and placed in two directories namely
+      # Windows and Unix_or_mac
+      if ! [[ $folder =~ $regex_dir ]];then
+        folder_sub=$(ls | grep -E -w "$regex_dir")
+        # This action has no harm even if $folder_sub contains an empty string
+        cd $folder_sub
       fi
+
+      # Substring, get the first letter of $level
+      # "${3:0:1}"
+      # grep -i ignores case
+      folder_path=$(find . | grep -i "${3:0:1}$4$")
+      cp "$folder_path"/* "$5"
+      echo "Success"
+      clean_garbage
+      exit 1
     else
       echo "Unable to download the required file from cemc.math.uwaterloo.ca"
       clean_garbage
@@ -125,9 +118,9 @@ extract_data(){
 
 clean_garbage(){
   rm -r ~/data-"$num"
-
 }
 
+# Beginning of the script
 clear
 
 validation '^[12][09][019][0-9]$' "Which year" "year" "Invalid input, input year between 199* to 201*"
